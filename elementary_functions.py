@@ -1,5 +1,5 @@
 import os
-
+from datetime import datetime
 
 def list_of_files(directory, extension):
     files_names = []
@@ -96,24 +96,21 @@ def file_cleaner(file_path: str):
 def file_check(file_path: str):
     error_info = [0,0,0]
     f = open(file_path, "r")
+    log = open("cleaner_log.txt","a")
+    log.write("------- [START {} : {}] -------\n".format(datetime.now(),file_path))
     checking = f.readlines()
     for elem in checking:
         for i in range(0, len(elem)):
             if elem[i] in ";!?-,.:_\'\"\n":
-                print("Punctuation remaining in " + file_path + " in spot "+elem[i-10:i+10])
+                log.write("Punctuation remaining in " + file_path + " in spot "+elem[i-10:i+10]+"\n")
                 error_info[0] += 1
             if elem[i] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-                print("Uppercase letter remaining in " + file_path + " in spot "+elem[i-10:i+10])
+                log.write("Uppercase letter remaining in " + file_path + " in spot "+elem[i-10:i+10]+"\n")
                 error_info[1] += 1
             if i != len(elem) - 1:
                 if elem[i] == " " and elem[i + 1] == " ":
-                    print("Double space detected in " + file_path + " in spot "+elem[i-10:i+10])
+                    log.write("Double space detected in " + file_path + " in spot "+elem[i-10:i+10]+"\n")
                     error_info[2] += 1
+    log.write("------- [END {}] -------\n\n".format(datetime.now()))
+    log.close()
     f.close()
-
-
-list1 = list_of_files("./speeches", ".txt")
-for elem in list1:
-    file_cleaner("./speeches/" + elem)
-for elem in list_of_files("./cleaned", ".txt"):
-    file_check("./cleaned/" + elem)
