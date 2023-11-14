@@ -1,16 +1,9 @@
-# This is a sample Python script.
+from elementary_functions import *
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+"""The main.py file here is a small testing program cleaning all the speeches files downloaded, then checking the 
+cleaning errors in that treated output."""
+list1 = list_of_files("./speeches", ".txt")
+for elem in list1:
+    file_cleaner("./speeches/" + elem)
+for elem in list_of_files("./cleaned", ".txt"):
+    file_check("./cleaned/" + elem)

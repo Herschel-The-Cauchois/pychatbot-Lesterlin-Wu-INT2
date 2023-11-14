@@ -1,0 +1,68 @@
+------- [START 2023-11-12 17:40:14.783242 : ./cleaned/Nomination_Chirac1_cleaned.txt] -------
+------- [END 2023-11-12 17:40:14.788210] -------
+
+------- [START 2023-11-12 17:40:14.792181 : ./cleaned/Nomination_Chirac2_cleaned.txt] -------
+------- [END 2023-11-12 17:40:14.795160] -------
+
+------- [START 2023-11-12 17:40:14.797149 : ./cleaned/Nomination_Giscard dEstaing_cleaned.txt] -------
+------- [END 2023-11-12 17:40:14.798143] -------
+
+------- [START 2023-11-12 17:40:14.799136 : ./cleaned/Nomination_Hollande_cleaned.txt] -------
+Double space detected in ./cleaned/Nomination_Hollande_cleaned.txt in spot us vivions   dans l 
+Double space detected in ./cleaned/Nomination_Hollande_cleaned.txt in spot s vivions   dans l h
+------- [END 2023-11-12 17:40:14.804101] -------
+
+------- [START 2023-11-12 17:40:14.807105 : ./cleaned/Nomination_Macron_cleaned.txt] -------
+------- [END 2023-11-12 17:40:14.811055] -------
+
+------- [START 2023-11-12 17:40:14.813042 : ./cleaned/Nomination_Mitterrand1_cleaned.txt] -------
+------- [END 2023-11-12 17:40:14.815051] -------
+
+------- [START 2023-11-12 17:40:14.817016 : ./cleaned/Nomination_Mitterrand2_cleaned.txt] -------
+Double space detected in ./cleaned/Nomination_Mitterrand2_cleaned.txt in spot  contraire   je n ai
+Double space detected in ./cleaned/Nomination_Mitterrand2_cleaned.txt in spot contraire   je n aim
+Double space detected in ./cleaned/Nomination_Mitterrand2_cleaned.txt in spot l esprit d  entrepri
+------- [END 2023-11-12 17:40:14.819003] -------
+
+------- [START 2023-11-12 17:40:14.821984 : ./cleaned/Nomination_Sarkozy_cleaned.txt] -------
+Double space detected in ./cleaned/Nomination_Sarkozy_cleaned.txt in spot  la france  
+------- [END 2023-11-12 17:40:14.825955] -------
+
+------- [START 2023-11-12 21:10:05.040307 : ./cleaned/Nomination_Chirac1_cleaned.txt] -------
+List of detected errors, read [Punctuation errors, Uppercase errors, Space errors] : [0, 0, 0]
+------- [END 2023-11-12 21:10:05.044280] -------
+
+------- [START 2023-11-12 21:10:05.046266 : ./cleaned/Nomination_Chirac2_cleaned.txt] -------
+List of detected errors, read [Punctuation errors, Uppercase errors, Space errors] : [0, 0, 0]
+------- [END 2023-11-12 21:10:05.048252] -------
+
+------- [START 2023-11-12 21:10:05.050240 : ./cleaned/Nomination_Giscard dEstaing_cleaned.txt] -------
+List of detected errors, read [Punctuation errors, Uppercase errors, Space errors] : [0, 0, 0]
+------- [END 2023-11-12 21:10:05.052227] -------
+
+------- [START 2023-11-12 21:10:05.053221 : ./cleaned/Nomination_Hollande_cleaned.txt] -------
+Double space detected in ./cleaned/Nomination_Hollande_cleaned.txt in spot us vivions   dans l 
+Double space detected in ./cleaned/Nomination_Hollande_cleaned.txt in spot s vivions   dans l h
+List of detected errors, read [Punctuation errors, Uppercase errors, Space errors] : [0, 0, 2]
+------- [END 2023-11-12 21:10:05.057192] -------
+
+------- [START 2023-11-12 21:10:05.060173 : ./cleaned/Nomination_Macron_cleaned.txt] -------
+List of detected errors, read [Punctuation errors, Uppercase errors, Space errors] : [0, 0, 0]
+------- [END 2023-11-12 21:10:05.064146] -------
+
+------- [START 2023-11-12 21:10:05.065140 : ./cleaned/Nomination_Mitterrand1_cleaned.txt] -------
+List of detected errors, read [Punctuation errors, Uppercase errors, Space errors] : [0, 0, 0]
+------- [END 2023-11-12 21:10:05.068124] -------
+
+------- [START 2023-11-12 21:10:05.069114 : ./cleaned/Nomination_Mitterrand2_cleaned.txt] -------
+Double space detected in ./cleaned/Nomination_Mitterrand2_cleaned.txt in spot  contraire   je n ai
+Double space detected in ./cleaned/Nomination_Mitterrand2_cleaned.txt in spot contraire   je n aim
+Double space detected in ./cleaned/Nomination_Mitterrand2_cleaned.txt in spot l esprit d  entrepri
+List of detected errors, read [Punctuation errors, Uppercase errors, Space errors] : [0, 0, 3]
+------- [END 2023-11-12 21:10:05.071101] -------
+
+------- [START 2023-11-12 21:10:05.073088 : ./cleaned/Nomination_Sarkozy_cleaned.txt] -------
+Double space detected in ./cleaned/Nomination_Sarkozy_cleaned.txt in spot  la france  
+List of detected errors, read [Punctuation errors, Uppercase errors, Space errors] : [0, 0, 1]
+------- [END 2023-11-12 21:10:05.076066] -------
+
