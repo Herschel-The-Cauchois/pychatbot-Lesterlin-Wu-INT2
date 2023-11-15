@@ -31,3 +31,36 @@ def idf_method(directory: str) -> dict:
     for key in idf_dict.keys():
         idf_dict[key] = log(1 / (idf_dict[key] / len(corpus)))
     return idf_dict
+
+
+def tf_idf(directory: str) -> list:
+    idf = idf_method(directory)
+    matrix = [["x"]]
+    to_be_analyzed = list_of_files(directory, ".txt")
+    is_not_indexed = True
+    index = 0
+    for file in to_be_analyzed:
+        f = open(directory+file, "r")
+        tf = tf_method(f.readline())
+        print(file)
+        matrix[0].append(file)
+        print(file in matrix[0])
+        for key in tf.keys():
+            for i in range(0, len(matrix)):
+                if matrix[i][0] == key:
+                    is_not_indexed = False
+            if is_not_indexed:
+                matrix.append([str(key)])
+                for j in range(1, len(matrix[0]) - 1):
+                    matrix[len(matrix) - 1].append(0)
+                matrix[len(matrix) - 1].append(tf[key] * idf[key])
+            else:
+                for j in range(0, len(matrix)):
+                    if matrix[j][0] == key:
+                        index = j
+                matrix[index].append(tf[key] * idf[key])
+        is_not_indexed = True
+        index = 0
+    return matrix
+
+# à résoudre : trop de 0 dans les sous listes colonnes

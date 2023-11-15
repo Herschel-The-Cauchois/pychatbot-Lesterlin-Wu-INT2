@@ -22,3 +22,4 @@ for files in list_of_files("./cleaned", ".txt"):
                 print(treated_line.count(string))
 
 print(idf_method("./cleaned"))
+print(tf_idf("./cleaned/"))
