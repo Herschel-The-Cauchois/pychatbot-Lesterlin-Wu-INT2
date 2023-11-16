@@ -67,6 +67,7 @@ def tf_idf(directory: str) -> list:
     for i in range(0, len(matrix)):
         log_file.write(str(matrix[i]) + "\n")
         log_file.write(str(len(matrix[i])) + "\n")
+    log_file.close()
     return matrix
     """for file in to_be_analyzed:
         log_file.write("------- [START {} : {}] -------\n".format(datetime.now(), file))
