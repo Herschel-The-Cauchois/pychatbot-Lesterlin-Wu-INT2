@@ -12,7 +12,6 @@ for files in list_of_files("./cleaned", ".txt"):
     f = open("./cleaned/"+files, "r")
     treated_line = f.readline()
     dict1 = tf_method(treated_line)
-    print(files)
     for string in treated_line:
         if len(string) != 1:
             if dict1[string] != treated_line.count(string):
@@ -21,5 +20,7 @@ for files in list_of_files("./cleaned", ".txt"):
                 print(dict1[string])
                 print(treated_line.count(string))
 
-print(idf_method("./cleaned"))
-print(tf_idf("./cleaned/"))
+tf_idf_dic = tf_idf("./cleaned/")
+print(tf_idf_dic)
+print("")
+
