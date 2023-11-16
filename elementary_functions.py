@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 
-def list_of_files(directory, extension):
+def list_of_files(directory, extension) -> list:
     """Function collecting in a list all the names of the file in a directory with a specific extension specified
     in the second parameter. Taken from the project PDF."""
     files_names = []
@@ -14,7 +14,7 @@ def list_of_files(directory, extension):
     return files_names
 
 
-def name_extractor(files_mentioned: list):
+def name_extractor(files_mentioned: list) -> set:
     """This function extract the names of the president according to the file names retrieved in a list, usually by
     the function list_of_files, to turn it into a set containing all of their names."""
     treatment = []
@@ -35,7 +35,7 @@ def name_extractor(files_mentioned: list):
     return set(treated)  # Converts the treated list into a set to remove duplicates.
 
 
-def president_fullname(name_list: set):
+def president_fullname(name_list: set) -> list:
     """This functions creates the list of each Vth Republic president's full name by associating the last name
     obtained in the name_extractor function to its first name via a dictionary."""
     output = []
