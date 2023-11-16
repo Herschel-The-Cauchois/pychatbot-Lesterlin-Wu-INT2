@@ -21,6 +21,4 @@ for files in list_of_files("./cleaned", ".txt"):
                 print(treated_line.count(string))
 
 tf_idf_dic = tf_idf("./cleaned/")
-print(tf_idf_dic)
-print("")
 
