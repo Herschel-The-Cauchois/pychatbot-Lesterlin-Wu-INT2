@@ -1,5 +1,6 @@
 from elementary_functions import *
 from tf_idf import *
+from application_functions import *
 
 list_files = list_of_files("./speeches", ".txt")
 
@@ -21,4 +22,4 @@ for files in list_of_files("./cleaned", ".txt"):
                 print(treated_line.count(string))
 
 tf_idf_dic = tf_idf("./cleaned/")
-
+print(highest_score_word(tf_idf_dic))
