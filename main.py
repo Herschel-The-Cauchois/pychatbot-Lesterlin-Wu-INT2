@@ -24,3 +24,6 @@ for files in list_of_files("./cleaned", ".txt"):
 tf_idf_dic = tf_idf("./cleaned/")
 print(highest_score_word(tf_idf_dic))
 print(chiracs_favorite_word(tf_idf_dic))
+print(nation_word_president(tf_idf_dic))
+print(first_ecological_president(tf_idf_dic))
+print(common_words_to_all(tf_idf_dic))
