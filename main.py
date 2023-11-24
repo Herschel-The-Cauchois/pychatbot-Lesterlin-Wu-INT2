@@ -23,3 +23,4 @@ for files in list_of_files("./cleaned", ".txt"):
 
 tf_idf_dic = tf_idf("./cleaned/")
 print(highest_score_word(tf_idf_dic))
+print(chiracs_favorite_word(tf_idf_dic))
