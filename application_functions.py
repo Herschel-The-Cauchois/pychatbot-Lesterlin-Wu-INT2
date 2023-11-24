@@ -1,5 +1,6 @@
 from elementary_functions import president_fullname, name_extractor, list_of_files
 
+
 def highest_score_word(matrix: list) -> list:
     highest_score_words = {matrix[1][0]: sum(matrix[1][1:])}
     for i in range(2, len(matrix)):
@@ -31,8 +32,8 @@ def chiracs_favorite_word(matrix: list) -> list:
 
 def nation_word_president(matrix: list):
     list_of_presidents = []
-    most_patriotic_president = [0,10]
-    for i in range(1,len(matrix)):
+    most_patriotic_president = [0, 10]
+    for i in range(1, len(matrix)):
         if matrix[i][0] == "nation":
             working_collection = matrix[i]
     for i in range(1, len(working_collection)):
@@ -42,9 +43,9 @@ def nation_word_president(matrix: list):
             list_of_presidents.append(i)
     for i in range(0, len(list_of_presidents)):
         if list_of_presidents[i] == 5 or list_of_presidents[i] == 6:
-            list_of_presidents[i] = president_fullname(name_extractor(list_of_files("./speeches",".txt")))[4]
+            list_of_presidents[i] = president_fullname(name_extractor(list_of_files("./speeches", ".txt")))[4]
         elif list_of_presidents[i] == 1 or list_of_presidents[i] == 2:
-            list_of_presidents[i] = president_fullname(name_extractor(list_of_files("./speeches",".txt")))[0]
+            list_of_presidents[i] = president_fullname(name_extractor(list_of_files("./speeches", ".txt")))[0]
         else:
             list_of_presidents[i] = president_fullname(name_extractor(list_of_files("./speeches", ".txt")))[i]
     if most_patriotic_president[0] == 5 or most_patriotic_president[0] == 6:
@@ -59,7 +60,7 @@ def nation_word_president(matrix: list):
 def first_ecological_president(matrix: list):
     presidents = []
     climate = []
-    for i in range(1,len(matrix)):
+    for i in range(1, len(matrix)):
         if matrix[i][0] == "climat":
             climate = matrix[i]
     chronological_order = ["Giscard", "Mitterand", "Chirac", "Sarkozy", "Hollande", "Macron"]
@@ -80,4 +81,3 @@ def common_words_to_all(matrix: list):
             if matrix[i][j] == 0 and matrix[i][0] in common_words:
                 common_words.remove(matrix[i][0])
     return common_words
-
