@@ -31,6 +31,7 @@ option = 0  # To emulate the Do - While algorithmic loop by setting the option s
 
 while option != "x":
     temp = ""
+    print("\n\n\n")
     print("-------- [START MENU] --------")
     print("Welcome to PyChatBot v0.1, written by Julien Wu and Lesterlin Raphaël. Please enter an integer or an x to "
           "select one option from the menu. Please wait 5s before each new instruction. Based on the investiture "
@@ -103,4 +104,10 @@ while option != "x":
         sleep(5)
     elif option == "x":
         print("We hope you have enjoyed your experience on Python Chatbot 0.1. Have a good day :)")
+        sleep(3)
         # And here a nice goodbye message !
+    else:
+        # Instruction in case of non recognized input.
+        print("Input not recognized. Please enter a valid character as put between square brackets in the menu.")
+        sleep(5)
+    print("\n")
