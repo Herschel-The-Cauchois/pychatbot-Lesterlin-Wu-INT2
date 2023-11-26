@@ -1,16 +1,18 @@
 from elementary_functions import *
 from tf_idf import *
 from application_functions import *
-from time import sleep
+from time import sleep  # Import the functions of each file and an additional sleep functions for user comfort.
 
-list_files = list_of_files("./speeches", ".txt")
+list_files = list_of_files("./speeches", ".txt")  # First create the list of files in the speech folder.
 
 for elem in list_files:
+    # Proceeds to clean the files and use the file_check to report any errors in the cleaning process.
     if elem[:-4]+"_cleaned.txt" not in list_of_files("./cleaned", ".txt"):
         file_cleaner("./speeches/" + elem)
         file_check("./cleaned/" + elem)
 
 for files in list_of_files("./cleaned", ".txt"):
+    # This loop was used to report any problems in the processing of counting words for the TF index for each file.
     f = open("./cleaned/"+files, "r")
     treated_line = f.readline()
     dict1 = tf_method(treated_line)
@@ -22,9 +24,10 @@ for files in list_of_files("./cleaned", ".txt"):
                 print(dict1[string])
                 print(treated_line.count(string))
 
-tf_idf_dic = tf_idf("./cleaned/")
+tf_idf_dic = tf_idf("./cleaned/")  # Creates the TF-IDF matrix that will be used and puts it in a variable.
 
-option = 0
+option = 0  # To emulate the Do - While algorithmic loop by setting the option selector variable to 0, which will
+# trigger the loop.
 
 while option != "x":
     temp = ""
@@ -46,8 +49,12 @@ while option != "x":
     if option == "1":
         print("WIP.")
     elif option == "2":
+        # For each involved function that returns a list, a similar loop is used to concatenate in the temp string
+        # each string contained in the list.
         for i in range(0, len(highest_score_word(tf_idf_dic))):
             if i == len(highest_score_word(tf_idf_dic))-1:
+                # This only triggers if the loop arrives at the last element of the result list, therefore ending the
+                # new string with a dot.
                 temp += highest_score_word(tf_idf_dic)[i] + "."
             else:
                 temp += highest_score_word(tf_idf_dic)[i]+", "
@@ -73,7 +80,7 @@ while option != "x":
             tf_idf_dic)[1])
         sleep(5)
     elif option == "5":
-        print("The first president who mentioned ecological themes such as ecology and climate is : "+
+        print("The first president who mentioned ecological themes such as ecology and climate is : " +
               first_ecological_president(tf_idf_dic))
         sleep(5)
     elif option == "6":
@@ -82,6 +89,7 @@ while option != "x":
                 temp += common_words_to_all(tf_idf_dic)[i] + "."
             else:
                 temp += common_words_to_all(tf_idf_dic)[i]+", "
+        # A small variation of the loop is used here in the case there is no common words to all speeches.
         if temp == "":
             print("There are no important words common to all speeches.")
         else:
@@ -89,4 +97,4 @@ while option != "x":
         sleep(5)
     elif option == "x":
         print("We hope you have enjoyed your experience on Python Chatbot 0.1. Have a good day :)")
-
+        # And here a nice goodbye message !
