@@ -1,6 +1,18 @@
 from elementary_functions import president_fullname, name_extractor, list_of_files
 
 
+def least_important_words(matrix: list) -> list:
+    """This functions returns the list of words that are unimportant in all the speeches files."""
+    unimportant_words = []  # Creates an empty list for the future result.
+    for i in range(1, len(matrix)):
+        unimportant_words.append(matrix[i][0])  # Appends first a new word to the unimportant words list.
+        for j in range(1, len(matrix[i])):
+            if matrix[i][j] > 0 and matrix[i][0] in unimportant_words:
+                unimportant_words.remove(matrix[i][0])  # If in the row, one of the TF-IDF index is > 0, the word is
+                # then removed from the unimportant words list.
+    return unimportant_words
+
+
 def highest_score_word(matrix: list) -> list:
     """This function displays the list of words with the highest TF-IDF score, aka the rarest according to the TF-IDF
     method."""
@@ -48,7 +60,7 @@ def chiracs_favorite_word(matrix: list) -> list:
     return final_list
 
 
-def nation_word_president(matrix: list):
+def nation_word_president(matrix: list) -> tuple:
     """This function is polyvalent : it looks to return both the list of the names of presidents that mention the
     word nation, the most patriotic referenced here being the president who uses its word the most."""
     list_of_presidents = []  # Creates the list that will host the names of presidents that mention the word "nation".
@@ -83,12 +95,12 @@ def nation_word_president(matrix: list):
     elif most_patriotic_president[0] == 1 or most_patriotic_president[0] == 2:
         most_patriotic_president = president_fullname(name_extractor(list_of_files("./speeches", ".txt")))[0]
     else:
-        most_patriotic_president = president_fullname(name_extractor(list_of_files("./speeches", ".txt")))[i]
+        most_patriotic_president = president_fullname(name_extractor(list_of_files("./speeches", ".txt")))[most_patriotic_president[0]]
     return sorted(list(set(list_of_presidents))), most_patriotic_president  # The set trans-typing removes duplicates
     # and the sorted function deals with the randomness that can appear with such operation.
 
 
-def first_ecological_president(matrix: list):
+def first_ecological_president(matrix: list) -> str:
     """This function returns the name of the first president who mentions the word climate."""
     presidents = []
     climate = []
@@ -111,7 +123,7 @@ def first_ecological_president(matrix: list):
                 return elem
 
 
-def common_words_to_all(matrix: list):
+def common_words_to_all(matrix: list) -> list:
     """This functions returns the list of words that are not unimportant, and present in each speech file."""
     common_words = []  # Creates an empty list for the future result.
     for i in range(1, len(matrix)):

@@ -47,7 +47,13 @@ while option != "x":
     print("\n")
     option = input("Enter an option :")
     if option == "1":
-        print("WIP.")
+        for i in range(0, len(least_important_words(tf_idf_dic))):
+            if i == len(least_important_words(tf_idf_dic))-1:
+                temp += least_important_words(tf_idf_dic)[i] + "."
+            else:
+                temp += least_important_words(tf_idf_dic)[i]+", "
+        print("The words of lowest importance in all of the speeches are : "+temp)
+        sleep(5)
     elif option == "2":
         # For each involved function that returns a list, a similar loop is used to concatenate in the temp string
         # each string contained in the list.
@@ -59,7 +65,7 @@ while option != "x":
             else:
                 temp += highest_score_word(tf_idf_dic)[i]+", "
         print("The words with the highest score are : "+temp)
-        sleep(5)
+        sleep(5)  # The sleep function allows the user to be able to read the answer before looping back.
     elif option == "3":
         for i in range(0, len(chiracs_favorite_word(tf_idf_dic))):
             if i == len(chiracs_favorite_word(tf_idf_dic))-1:
@@ -77,7 +83,7 @@ while option != "x":
         print("The president who use the word nation in their speech are : "+temp+" The most patriotic president of "
                                                                                   "them all with its most common use "
                                                                                   "is "+nation_word_president(
-            tf_idf_dic)[1])
+            tf_idf_dic)[1] + ".")
         sleep(5)
     elif option == "5":
         print("The first president who mentioned ecological themes such as ecology and climate is : " +
