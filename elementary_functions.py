@@ -14,28 +14,30 @@ def list_of_files(directory, extension) -> list:
     return files_names
 
 
-def name_extractor(files_mentioned: list) -> set:
+def name_extractor(files_mentioned: list) -> list:
     """This function extract the names of the president according to the file names retrieved in a list, usually by
     the function list_of_files, to turn it into a set containing all of their names."""
     treatment = []
     treated = []  # Creating the two necessary lists for processing
-    for elem in treatment:
-        for elem in files_mentioned:  # Starts by cutting in two the name of the president contained in the file
-            # name, separating them by an underscore.
-            name_breaker = elem.split("_")
-            name_breaker[1] = name_breaker[1][:-4]  # Then removes the file extension from the name
-            treatment.append(
-                name_breaker[1])  # Stores what's remaining of the last name to the first temporary storage list
-        if elem[-1:] in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]:
-            treated.append(elem[
+    for elem in files_mentioned:  # Starts by cutting in two the name of the president contained in the file
+        # name, separating them by an underscore.
+        name_breaker = elem.split("_")
+        name_breaker[1] = name_breaker[1][:-4]  # Then removes the file extension from the name
+        treatment.append(
+            name_breaker[1])  # Stores what's remaining of the last name to the first temporary storage list
+    for element in treatment:
+        if element[-1:] in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]:
+            treated.append(element[
                            :-1])  # Removes any iteration number in the file names still attached to the obtained
             # data before appending to the treated list.
         else:
-            treated.append(elem)  # If there's no such thing, directly appends it.
-    return set(treated)  # Converts the treated list into a set to remove duplicates.
+            treated.append(element)  # If there's no such thing, directly appends it.
+    set(treated)  # Converts the treated list into a set to remove duplicates.
+    return sorted(list(treated))  # returns the set into a list to sort it, after test it was revealed the set
+    # conversion shuffled the order of the elements of the output.
 
 
-def president_fullname(name_list: set) -> list:
+def president_fullname(name_list: list) -> list:
     """This functions creates the list of each Vth Republic president's full name by associating the last name
     obtained in the name_extractor function to its first name via a dictionary."""
     output = []
