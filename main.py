@@ -139,7 +139,10 @@ while selection != "x":
     while selection == "2":
         print("Part 2 function test :\n")
         print("\n")
-        print(is_in_corpus(question_words(input("Enter a question :")), tf_idf_dic))
+        temp = question_tf_idf(question_words(input("Enter a question :")), idf_method("./cleaned/"), tf_idf_dic)
+        for i in range(1, len(temp)):
+            if temp[i][1] != 0:
+                print(temp[i])
         print("Part 2 function test done.")
         sleep(5)
         selection = "x"

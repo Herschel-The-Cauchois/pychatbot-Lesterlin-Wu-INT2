@@ -44,3 +44,18 @@ def is_in_corpus(question: list, matrix: list):
             # Added to the common words list.
     return intersection
 
+
+def question_tf_idf(question: list, idf: dict, matrix: list):
+    """This functions processes the question as a list of its words to produce the TF-IDF matrix of its words present
+    in the text corpus as done by previous function."""
+    common_words = is_in_corpus(question, matrix)  # Stores in a variable the list of common words.
+    matrix_result = [["x", "Score"]]  # Initialize the resulting matrix with a more visually understandable beginning.
+    for key in idf.keys():
+        if key in common_words:
+            # If the idf dictionary key is in the common words, proceeds to add to the resulting matrix the
+            # number of times encountered in question / length of question string ratio with the associated word.
+            matrix_result.append([key, ((question.count(key) / len(question)) * idf[key])])
+        else:
+            # Else, just appends a 0.
+            matrix_result.append([key, 0])
+    return matrix_result
