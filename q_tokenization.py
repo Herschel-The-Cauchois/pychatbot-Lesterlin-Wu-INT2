@@ -29,3 +29,18 @@ def question_words(question: str):
             del temp1[i]
         i += 1
     return temp1   # Returns the expected list.
+
+
+def is_in_corpus(question: list, matrix: list):
+    """This functions takes a list of words and produces a list of the words common to the corpus and that list."""
+    list_of_corpus_words = []
+    intersection = []
+    for i in range(1, len(matrix)):
+        list_of_corpus_words.append(matrix[i][0]) # For less line codes, we create directly a list of the words
+        # in the corpus there.
+    for word in question:
+        if word in list_of_corpus_words:
+            intersection.append(word)  # If a word in the question belongs to the list of the corpus' words, it is
+            # Added to the common words list.
+    return intersection
+
