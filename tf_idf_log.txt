@@ -1,4 +1,4 @@
-------- [START 2023-12-07 16:17:26.661816 : Nomination_Chirac1_cleaned.txt] -------
+------- [START 2023-12-14 15:31:59.876376 : Nomination_Chirac1_cleaned.txt] -------
 Now checking key messieurs
 With tf value 2
 Now checking key les
@@ -561,7 +561,7 @@ Now checking key message
 With tf value 1
 Now checking key vive
 With tf value 2
-------- [START 2023-12-07 16:17:26.669784 : Nomination_Chirac2_cleaned.txt] -------
+------- [START 2023-12-14 15:31:59.888295 : Nomination_Chirac2_cleaned.txt] -------
 Now checking key monsieur
 With tf value 2
 Now checking key le
@@ -1376,7 +1376,7 @@ Now checking key assumerai
 With tf value 1
 Now checking key vive
 With tf value 2
-------- [START 2023-12-07 16:17:26.693623 : Nomination_Giscard dEstaing_cleaned.txt] -------
+------- [START 2023-12-14 15:31:59.915113 : Nomination_Giscard dEstaing_cleaned.txt] -------
 Now checking key messieurs
 With tf value 4
 Now checking key les
@@ -1725,7 +1725,7 @@ Now checking key fraternel
 With tf value 1
 Now checking key abordons
 With tf value 1
-------- [START 2023-12-07 16:17:26.708508 : Nomination_Hollande_cleaned.txt] -------
+------- [START 2023-12-14 15:31:59.930014 : Nomination_Hollande_cleaned.txt] -------
 Now checking key monsieur
 With tf value 1
 Now checking key le
@@ -2736,7 +2736,7 @@ Now checking key devant
 With tf value 1
 Now checking key vive
 With tf value 2
-------- [START 2023-12-07 16:17:26.758193 : Nomination_Macron_cleaned.txt] -------
+------- [START 2023-12-14 15:32:00.022393 : Nomination_Macron_cleaned.txt] -------
 Now checking key mesdames
 With tf value 2
 Now checking key messieurs
@@ -3879,7 +3879,7 @@ Now checking key dès
 With tf value 1
 Now checking key serai
 With tf value 1
-------- [START 2023-12-07 16:17:26.839622 : Nomination_Mitterrand1_cleaned.txt] -------
+------- [START 2023-12-14 15:32:00.125698 : Nomination_Mitterrand1_cleaned.txt] -------
 Now checking key monsieur
 With tf value 4
 Now checking key le
@@ -4544,7 +4544,7 @@ Now checking key avenir
 With tf value 1
 Now checking key vive
 With tf value 2
-------- [START 2023-12-07 16:17:26.896263 : Nomination_Mitterrand2_cleaned.txt] -------
+------- [START 2023-12-14 15:32:00.226025 : Nomination_Mitterrand2_cleaned.txt] -------
 Now checking key monsieur
 With tf value 1
 Now checking key le
@@ -5257,7 +5257,7 @@ Now checking key terre
 With tf value 1
 Now checking key vive
 With tf value 2
-------- [START 2023-12-07 16:17:26.982662 : Nomination_Sarkozy_cleaned.txt] -------
+------- [START 2023-12-14 15:32:00.348204 : Nomination_Sarkozy_cleaned.txt] -------
 Now checking key mesdames
 With tf value 1
 Now checking key et
@@ -6076,9 +6076,9 @@ Now checking key détermination
 With tf value 1
 Now checking key vive
 With tf value 2
-------- [END 2023-12-07 16:17:27.139612] -------
+------- [END 2023-12-14 15:32:00.591570] -------
 
-------- [RESULTED MATRIX 2023-12-07 16:17:27.139612] -------
+------- [RESULTED MATRIX 2023-12-14 15:32:00.591570] -------
 
 ['x', 'Nomination_Chirac1_cleaned.txt', 'Nomination_Chirac2_cleaned.txt', 'Nomination_Giscard dEstaing_cleaned.txt', 'Nomination_Hollande_cleaned.txt', 'Nomination_Macron_cleaned.txt', 'Nomination_Mitterrand1_cleaned.txt', 'Nomination_Mitterrand2_cleaned.txt', 'Nomination_Sarkozy_cleaned.txt']
 9

@@ -1,4 +1,4 @@
-
+from math import sqrt
 
 def question_words(question: str):
     """This functions takes as a parameter a question-string and processes it like the text files before returning
@@ -59,3 +59,33 @@ def question_tf_idf(question: list, idf: dict, matrix: list):
             # Else, just appends a 0.
             matrix_result.append([key, 0])
     return matrix_result
+
+
+def most_relevant_document(corpus_matrix: list, question_matrix: list, file_names: list):
+    """This function, using the scalar product-cosinus relationship to obtain a cosine similarity between the question
+    vector and the vector of each document, returns the index of the relevant document in the list of original files."""
+    cosine_similarities = []  # List that will store the cosine similarity of each document with the question
+    relevant_doc_index = 0  # Will store the index of the relevant document in the list_file list in the main program.
+    for i in range(len(file_names)):
+        scalar_product = 0
+        vector_norm1 = 0
+        vector_norm2 = 0
+        for j in range(1, len(corpus_matrix)):
+            # Proceeds to calculate the scalar product (sum of Corpus Matrix [row j] * Question Matrix [row j])
+            scalar_product += corpus_matrix[j][i+1]*question_matrix[j][1]
+        for j in range(1, len(corpus_matrix)):
+            vector_norm1 += corpus_matrix[j][i+1]**2
+        vector_norm1 = sqrt(vector_norm1)
+        # Above and right under will calculate the square root of the sum of the squared TF-IDF vector of each word in
+        # both matrix.
+        for j in range(1, len(corpus_matrix)):
+            vector_norm2 += question_matrix[j][1]**2
+        vector_norm2 = sqrt(vector_norm2)
+        # Appends to the cosine similarities list the final cos theta = scalar product AB / (norm A*norm B).
+        cosine_similarities.append(scalar_product*(vector_norm1*vector_norm2))
+    for i in range(len(cosine_similarities)):
+        # Finally, look for the maximum value in the cosine similarities and returns the index of it, corresponding
+        # To the index of a document that will be the relevant document.
+        if cosine_similarities[i] > cosine_similarities[relevant_doc_index]:
+            relevant_doc_index = i
+    return relevant_doc_index

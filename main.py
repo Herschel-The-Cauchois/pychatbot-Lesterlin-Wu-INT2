@@ -143,6 +143,7 @@ while selection != "x":
         for i in range(1, len(temp)):
             if temp[i][1] != 0:
                 print(temp[i])
+        print(list_files[most_relevant_document(tf_idf_dic, temp, tf_idf_dic[0][1:])])
         print("Part 2 function test done.")
         sleep(5)
         selection = "x"
