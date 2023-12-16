@@ -2,6 +2,7 @@ from elementary_functions import *
 from tf_idf import *
 from application_functions import *
 from q_tokenization import *
+from q_answer import *
 from time import sleep  # Import the functions of each file and an additional sleep functions for user comfort.
 
 list_files = list_of_files("./speeches", ".txt")  # First create the list of files in the speech folder.
@@ -137,20 +138,33 @@ while selection != "x":
                 sleep(5)
             print("\n")
     while selection == "2":
-        print("Part 2 function test :\n")
         print("\n")
-        temp = question_tf_idf(question_words(input("Enter a question :")), idf_method("./cleaned/"), tf_idf_dic)
-        for i in range(1, len(temp)):
-            if temp[i][1] != 0:
-                print(temp[i])
-        print(list_files[most_relevant_document(tf_idf_dic, temp, tf_idf_dic[0][1:])])
-        print("Part 2 function test done.")
-        sleep(5)
-        selection = "x"
+        print("You have entered chatbot mode. If you desire to go back, type b as the question. If you want to exit "
+              "the program as a whole, type x.")
+        question = input("Enter a question :")
+        if question == "b":
+            selection = 0
+        elif question == "x":
+            selection = "x"
+        else:
+            temp = question_tf_idf(question_words(question), idf_method("./cleaned/"), tf_idf_dic)
+            answer = generate_answer(temp, list_files[most_relevant_document(tf_idf_dic, temp, tf_idf_dic[0][1:])])
+            if type(answer) != str or answer == "":
+                # Sometimes, due to very similar TF-IDF or lack of question's word in the documents, it returns
+                # a None object. To handle those cases, we have added a default input.
+                print("Votre question dépasse mon entendement. Veuillez reformuler votre question en termes plus "
+                      "concis, ou vérifiez le vocabulaire utilisé voire le sens même de votre question.")
+            else:
+                print(answer)
+                sleep(5)
     if selection == "x":
         print("We hope you have enjoyed your experience on Python Chatbot 0.1.1. Have a good day :)")
         sleep(3)
         # And here a nice goodbye message !
+    elif selection == 0:
+        print("Going back to main menu.\n")  # This was implemented as when going back to the main menu,
+        # the program used to trigger the invalid input condition.
+        sleep(1)
     else:
         # Message in case of non recognized input.
         print("Input not recognized. Please enter a valid character as put between square brackets in the menu.")

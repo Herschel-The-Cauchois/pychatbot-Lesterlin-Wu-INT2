@@ -1,5 +1,6 @@
 from math import sqrt
 
+
 def question_words(question: str):
     """This functions takes as a parameter a question-string and processes it like the text files before returning
     a list of the processed words of the question."""
