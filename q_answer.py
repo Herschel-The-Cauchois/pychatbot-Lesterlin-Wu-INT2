@@ -56,3 +56,82 @@ def generate_answer(question_matrix: list, relevant_document: str):
                                                                                      "TF-IDF !\n")
         log_file.write("------- [ANSWER GENERATED {} ] -------\n\n\n".format(datetime.now()))
         return final_sentence
+
+
+def refine_answer(question: str, answer: str):
+    """Function that takes a generated base answer and the question asked to determine an appropriate starter for
+    the generated answer, then after processing appropriately the base answer merge the incipit and base answer
+    to be returned and printed in the main program."""
+    incipit = ""  # The starting of the answer is treated separately to avoid taking too many resources and time
+    # for nothing.
+    starters = {
+        "peux-tu": "bien sûr !",
+        "comment": "après réflexion,",
+        "pourquoi": "car",
+        "est-ce que": "d'après mon humble analyse,",
+        "quand": "lorsque",
+        "a qui": "a",
+        "a quoi": "a",
+        "qui": "le/la",
+        "lequel": "le",
+        "laquelle": "la",
+        "où": "là",
+        "combien": "il y a",
+        "quel": "le",
+        "quels": "les",
+        "quelle": "la",
+        "quelles": "les",
+        "il y a": "il y a",
+        "faut-il": "il faut",
+        "qu'est ce qu": "c'est",
+        "pour ou contre": "c'est compliqué,",
+        "est-il": "oui et non",
+        "est-elle": "oui et non",
+    }  # This non-exhaustive dictionary collects the most common interrogative starters in french and
+    # the appropriate answer starters.
+    temp = ""
+    for i in range(0, len(question)):
+        # First, for more readability converts all uppercase characters of the question into lowercase.
+        if 64 < ord(question[i]) < 91:
+            temp += chr(ord(question[i]) + 32)
+        else:
+            temp += question[i]
+    for key in starters.keys():
+        # Proceed to generate the incipit by going through each key of the dictionary and adding an answer starter
+        # in the future final incipit.
+        if key in temp:
+            if incipit[:-2] != "!":
+                incipit += starters[key]+" "
+            else:
+                # since only one answer starter ends with an end of sentence mark, it is only in this case that the
+                # added starter answer in this iteration of the incipit generation will have its first letter
+                # turned into uppercase.
+                incipit += chr(ord(starters[key][0]) - 32) + starters[key][1:] + " "
+    if len(incipit) != 0:
+        # If the incipit generated isn't empty, turns into uppercase the first letter of the answer starter.
+        incipit = chr(ord(incipit[0]) - 32)+incipit[1:]
+    else:
+        # If the generated incipit is empty, proceeds to replace it by a default answer starter.
+        incipit = "Eh bien, "
+    temp = ""
+    premiere_majuscule = 0
+    for i in range(0, len(answer)):
+        # Proceeds now to process the base answer.
+        if 64 < ord(answer[i]) < 91 and premiere_majuscule == 0:
+            # Since the added speeches line often starts with an uppercase letter, converts the first occurrence
+            # of this case into lower case for better syntaxical logic in the reply.
+            temp += chr(ord(answer[i]) + 32)
+            premiere_majuscule = 1
+        elif answer[i] == "\n":
+            # Removes new line characters in the base answer.
+            temp += ""
+        elif answer[i] in ",;:" and i == len(answer)-1:
+            # Replaces final commas, colons and semicolons at the end of some speech lines by a dot.
+            temp += "."
+        else:
+            temp += answer[i]
+    if temp[len(temp)-1] in ";,:":
+        # Reiterates the last procedure of the loop above.
+        temp = temp[:-1] + "."
+    final_answer = incipit + temp  # Finally, merges the answer starter and the treated base answer.
+    return final_answer

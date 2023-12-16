@@ -37,7 +37,7 @@ while selection != "x":
     # This launches the loop of the start menu. It subdivides in another while loop, when selection is equal to 1
     # for the part 1 functions and another while loop for the part 2 when selection is equal to 2.
     print("-------- [START MENU] --------")
-    print("Welcome to PyChatBot v0.1.1, written by Julien Wu and Lesterlin Raphaël. Please enter an integer or an x to "
+    print("Welcome to PyChatBot v0.2, written by Julien Wu and Lesterlin Raphaël. Please enter an integer or an x to "
           "select one option from the menu. Please wait 5s before each new instruction. Based on the investiture "
           "speeches of all french president since VGE. Dedicated to EFREI PARIS.")
     print("\n")
@@ -141,13 +141,17 @@ while selection != "x":
         print("\n")
         print("You have entered chatbot mode. If you desire to go back, type b as the question. If you want to exit "
               "the program as a whole, type x.")
+        print("Be aware that the ChatBot will only understand questions and will reply in french.")
         question = input("Enter a question :")
         if question == "b":
             selection = 0
         elif question == "x":
             selection = "x"
         else:
+            # Stores in a temporary variable the TF-IDF matrix of the question.
             temp = question_tf_idf(question_words(question), idf_method("./cleaned/"), tf_idf_dic)
+            # Generate an appropriate answer from the question's matrix and the most relevant document to
+            # Answer the question.
             answer = generate_answer(temp, list_files[most_relevant_document(tf_idf_dic, temp, tf_idf_dic[0][1:])])
             if type(answer) != str or answer == "":
                 # Sometimes, due to very similar TF-IDF or lack of question's word in the documents, it returns
@@ -155,10 +159,11 @@ while selection != "x":
                 print("Votre question dépasse mon entendement. Veuillez reformuler votre question en termes plus "
                       "concis, ou vérifiez le vocabulaire utilisé voire le sens même de votre question.")
             else:
+                answer = refine_answer(question, answer)
                 print(answer)
                 sleep(5)
     if selection == "x":
-        print("We hope you have enjoyed your experience on Python Chatbot 0.1.1. Have a good day :)")
+        print("We hope you have enjoyed your experience on Python Chatbot 0.2. Have a good day :)")
         sleep(3)
         # And here a nice goodbye message !
     elif selection == 0:
