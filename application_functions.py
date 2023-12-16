@@ -1,3 +1,5 @@
+# Python Chatbot - LESTERLIN Raphaël and WU Julien - Application of the TF-IDF matrix functions in Part I
+
 from elementary_functions import president_fullname, name_extractor, list_of_files
 
 

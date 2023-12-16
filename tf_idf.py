@@ -1,3 +1,5 @@
+# Python Chatbot - LESTERLIN Raphaël and WU Julien - TF-IDF matrix generation
+
 from math import *
 from elementary_functions import list_of_files
 from datetime import datetime
@@ -41,8 +43,8 @@ def idf_method(directory: str) -> dict:
                 treated_words.append(elem)
         treated_words = []  # Resets the treated words list each time the function proceeds a new file.
     for key in idf_dict.keys():
-        idf_dict[key] = log(1 / (idf_dict[key] / len(
-            corpus)))  # Calculates the IDF score from the number of files where the word was found and stores it in
+        idf_dict[key] = log((len(corpus) / idf_dict[key]
+            )+1)  # Calculates the IDF score from the number of files where the word was found and stores it in
         # the value of each word-key.
     return idf_dict
 
