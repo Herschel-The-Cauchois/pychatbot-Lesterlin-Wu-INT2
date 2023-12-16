@@ -1,3 +1,5 @@
+# Python Chatbot - LESTERLIN Raphaël and WU Julien - Main program
+
 from elementary_functions import *
 from tf_idf import *
 from application_functions import *

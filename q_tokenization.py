@@ -1,3 +1,5 @@
+# Python Chatbot - LESTERLIN Raphaël and WU Julien - Processing a user question for the chatbot part, cosine similarity
+
 from math import sqrt
 
 
@@ -10,7 +12,7 @@ def question_words(question: str):
         j = 0
         while j < len(temp1[i]):  # loops through each word-list of characters.
             if temp1[i][j] == "'" and temp1[i][j-1] in "ldmntsj":
-                # Here, proceeds to remove characters such as l' or d' in french which may confuse the chatbot.
+                # Here, proceeds to remove characters such as l' or d' in French which may confuse the chatbot.
                 del temp1[i][j-1]
                 del temp1[i][j-1]
             if temp1[i][j] in "-_.?!,;:/§'\"":
@@ -37,7 +39,7 @@ def is_in_corpus(question: list, matrix: list):
     list_of_corpus_words = []
     intersection = []
     for i in range(1, len(matrix)):
-        list_of_corpus_words.append(matrix[i][0]) # For less line codes, we create directly a list of the words
+        list_of_corpus_words.append(matrix[i][0])  # For less line codes, we create directly a list of the words
         # in the corpus there.
     for word in question:
         if word in list_of_corpus_words:
@@ -63,7 +65,7 @@ def question_tf_idf(question: list, idf: dict, matrix: list):
 
 
 def most_relevant_document(corpus_matrix: list, question_matrix: list, file_names: list):
-    """This function, using the scalar product-cosinus relationship to obtain a cosine similarity between the question
+    """This function, using the scalar product-cosine relationship to obtain a cosine similarity between the question
     vector and the vector of each document, returns the index of the relevant document in the list of original files."""
     cosine_similarities = []  # List that will store the cosine similarity of each document with the question
     relevant_doc_index = 0  # Will store the index of the relevant document in the list_file list in the main program.

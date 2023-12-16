@@ -1,3 +1,5 @@
+# Python Chatbot - LESTERLIN Raphaël and WU Julien - Generation and treatment of an answer to the user's question
+
 from datetime import datetime
 
 
@@ -87,7 +89,7 @@ def refine_answer(question: str, answer: str):
         "pour ou contre": "c'est compliqué,",
         "est-il": "oui et non",
         "est-elle": "oui et non",
-    }  # This non-exhaustive dictionary collects the most common interrogative starters in french and
+    }  # This non-exhaustive dictionary collects the most common interrogative starters in French and
     # the appropriate answer starters.
     temp = ""
     for i in range(0, len(question)):
@@ -119,7 +121,7 @@ def refine_answer(question: str, answer: str):
         # Proceeds now to process the base answer.
         if 64 < ord(answer[i]) < 91 and premiere_majuscule == 0:
             # Since the added speeches line often starts with an uppercase letter, converts the first occurrence
-            # of this case into lower case for better syntaxical logic in the reply.
+            # of this case into lower case for better syntactical logic in the reply.
             temp += chr(ord(answer[i]) + 32)
             premiere_majuscule = 1
         elif answer[i] == "\n":

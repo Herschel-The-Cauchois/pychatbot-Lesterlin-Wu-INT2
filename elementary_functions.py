@@ -1,3 +1,5 @@
+# Python Chatbot - LESTERLIN Raphaël and WU Julien - Elementary text and file processing function
+
 import os
 from datetime import datetime
 

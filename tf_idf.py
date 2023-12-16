@@ -1,3 +1,5 @@
+# Python Chatbot - LESTERLIN Raphaël and WU Julien - TF-IDF matrix generation
+
 from math import *
 from elementary_functions import list_of_files
 from datetime import datetime
