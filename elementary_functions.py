@@ -34,7 +34,7 @@ def name_extractor(files_mentioned: list) -> list:
             # data before appending to the treated list.
         else:
             treated.append(element)  # If there's no such thing, directly appends it.
-    set(treated)  # Converts the treated list into a set to remove duplicates.
+    treated = set(treated)  # Converts the treated list into a set to remove duplicates.
     return sorted(list(treated))  # returns the set into a list to sort it, after test it was revealed the set
     # conversion shuffled the order of the elements of the output.
 
