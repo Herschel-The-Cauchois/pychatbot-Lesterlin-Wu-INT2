@@ -13,7 +13,7 @@ for elem in list_files:
     # Proceeds to clean the files and use the file_check to report any errors in the cleaning process.
     if elem[:-4]+"_cleaned.txt" not in list_of_files("./cleaned", ".txt"):
         file_cleaner("./speeches/" + elem)
-        file_check("./cleaned/" + elem)
+        file_check("./cleaned/" + elem[:-4] + "_cleaned.txt")
 
 for files in list_of_files("./cleaned", ".txt"):
     # This loop was used to report any problems in the processing of counting words for the TF index for each file.
